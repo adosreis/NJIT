@@ -1,23 +1,22 @@
+import itertools
+
+working = [0b111000000, 0b000111000, 0b000000111, 0b100100100, 0b010010010, 0b001001001, 0b100010001, 0b001010100]
+
+def test(pattern, val):
+    changed = int("".join([("1" if x == val else "0") for x in pattern]), 2)
+    for work in working:
+        if changed & work == work:
+            return True
+    return False
+
 with open("input/problem2.txt") as fs:
     runNum = int(fs.readline())
     for rn in range(runNum):
-        row = [fs.readline().split() for x in range(3)]
-        print(row)
-        worked = False
-        for x in range(0,3):
-            if row[x][0] == row[x][1] == row[x][2]:
-                print(row[x][0])
-                worked = True
-        if row[0][0] == row[1][1] == row[2][2]:
-            print(row[0][0])
-            worked = True
-        elif row[0][2] == row[1][1] == row[2][0]:
-            print(row[2][0])
-            worked = True
-        for x in range(0,3):
-            if row[0][x] == row[1][x] == row[2][x]:
-                print(row[0][x])
-                worked = True
-        if not worked :
-            print('-')
-    
+        row = list(itertools.chain.from_iterable([fs.readline().split() for x in range(3)]))
+        if test(row, "X"):
+            print "X"
+            continue
+        if test(row, "O"):
+            print "O"
+            continue
+        print "-"

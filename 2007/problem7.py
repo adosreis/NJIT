@@ -4,7 +4,7 @@ with open("input/problem7.txt") as fs:
 		tickets = map(int, fs.readline().split())
 		miles = tickets.pop(0)
 
-		for x in xrange(pow(2, 10)):
+		for x in xrange(2 ** 10):
 			total = sum(v if x & (1 << i) == 1 << i else -v for i, v in enumerate(tickets))
 			if total == miles:
 				print "turkey"

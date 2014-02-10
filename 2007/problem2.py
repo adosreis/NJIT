@@ -1,22 +1,20 @@
 import itertools
 
-working = [0b111000000, 0b000111000, 0b000000111, 0b100100100, 0b010010010, 0b001001001, 0b100010001, 0b001010100]
+tests = [map(int, x) for x in ["111000000", "000111000", "000000111", "100100100", "010010010", "001001001", "100010001", "001010100"]]
 
 def test(pattern, val):
-    changed = int("".join([("1" if x == val else "0") for x in pattern]), 2)
-    for work in working:
-        if changed & work == work:
+    for test in tests:
+        if all(x == val for x in itertools.compress(pattern, test)):
             return True
     return False
 
 with open("input/problem2.txt") as fs:
     runNum = int(fs.readline())
-    for rn in range(runNum):
+    for _ in range(runNum):
         row = list(itertools.chain.from_iterable([fs.readline().split() for x in range(3)]))
         if test(row, "X"):
             print "X"
-            continue
-        if test(row, "O"):
+        elif test(row, "O"):
             print "O"
-            continue
-        print "-"
+        else:
+            print "-"

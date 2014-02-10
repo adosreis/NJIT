@@ -1,6 +1,6 @@
 with open("input/problem7.txt") as fs:
 	runNum = int(fs.readline())
-	for rn in range(runNum):
+	for _ in range(runNum):
 		tickets = map(int, fs.readline().split())
 		miles = tickets.pop(0)
 

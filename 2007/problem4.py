@@ -1,6 +1,6 @@
 with open("input/problem4.txt") as fs:
     runNum = int(fs.readline())
-    for rn in range(runNum):
+    for _ in range(runNum):
         group = fs.readline().split()[1:]
         gl = len(group)
         group.sort()

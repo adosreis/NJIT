@@ -8,6 +8,6 @@ total.extend(sorted(x + y) for x in run for y in run)
 
 with open("input/problem0.txt") as fs:
     runNum = int(fs.readline())
-    for r in range(runNum):
+    for _ in range(runNum):
         hand = sorted(fs.readline().split())
         print ("gin" if hand in total else "lose")

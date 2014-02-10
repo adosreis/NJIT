@@ -1,6 +1,6 @@
 with open("input/problem5.txt") as fs:
 	runNum = int(fs.readline()) // 2
-	for rn in range(runNum):
+	for _ in range(runNum):
 	    line1 = set(fs.readline().split()[1:])
 	    line2 = set(fs.readline().split()[1:])
 	    difference = line1 ^ line2

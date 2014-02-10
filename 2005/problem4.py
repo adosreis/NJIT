@@ -18,16 +18,16 @@ def process(hand):
 		return (5,) + (lookup_one(3),) * 3 + (lookup_one(2),) * 2
 	#straight
 	if len(counts) == 5 and (max(counts) - min(counts) == 4):
-		return (4,) + tuple(reversed(sorted(counts)))
+		return (4,) + tuple(sorted(counts, reverse=True))
 	#three of a kind
 	if lookup(3):
-		return (3,) + (lookup_one(3),) * 3 + tuple(reversed(sorted(lookup(1))))
+		return (3,) + (lookup_one(3),) * 3 + tuple(sorted(lookup(1), reverse=True))
 	#two pairs
 	if len(lookup(2)) == 2:
-		return (2,) + tuple(reversed(sorted(lookup(2)*2))) + (lookup_one(1),)
+		return (2,) + tuple(sorted(lookup(2) * 2, reverse=True)) + (lookup_one(1),)
 	#one pair
 	if len(lookup(2)) == 1:
-		return (1,) + (lookup_one(2),) * 2 + tuple(reversed(sorted(lookup(1))))
+		return (1,) + (lookup_one(2),) * 2 + tuple(sorted(lookup(1), reverse=True))
 
 	return (0,) * 6
 

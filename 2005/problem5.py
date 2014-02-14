@@ -1,11 +1,11 @@
-import collections
+from collections import Counter
 
 def sort_str(s):
 	return ''.join(sorted(s))
 
 with open("input/problem5.txt") as fs:
 	runs = int(fs.readline())
-	counts = collections.Counter()
+	counts = Counter()
 
 	inputs = [fs.readline().strip() for _ in range(runs)]
 

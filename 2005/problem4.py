@@ -1,9 +1,9 @@
-import collections
+from collections import Counter
 
 rankings = '234567890JQKA'
 
 def process(hand):
-	counts = collections.Counter(map(rankings.find, hand))
+	counts = Counter(map(rankings.find, hand))
 	def lookup(x):
 		return [v for v, k in counts.items() if k == x]
 

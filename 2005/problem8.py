@@ -1,7 +1,7 @@
-import textwrap
+from textwrap import wrap
 
 def fmt(s):
-	wrapped = textwrap.wrap(s, 79)
+	wrapped = wrap(s, 79)
 	if len(wrapped[-1]) == 1 and len(wrapped) > 1:
 		wrapped[-2] += wrapped[-1]
 		del wrapped[-1]

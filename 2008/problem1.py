@@ -16,6 +16,6 @@ with open("input/problem1.txt") as fs:
 			hundreds = int(number[-3])
 		if length > 3:
 			thousands = int(number[-4])
-		print(str(thousands_to_rn[thousands]+hundreds_to_rn[hundreds]+tens_to_rn[tens]+ones_to_rn[ones]))
+		print(thousands_to_rn[thousands]+hundreds_to_rn[hundreds]+tens_to_rn[tens]+ones_to_rn[ones])
 		
 	
